@@ -15,5 +15,18 @@ const images = [
 
 const list = document.querySelector('.gallery');
 
-const element = images.map((image) => `<li><img src = ${imgage.url} alt = "${image.alt}"></li>`).join('');
-list.insertAdjacentHTML("beforeend", element)
+const element = images.map((image) => `<li><img src=${image.url} alt = ${image.alt}></li>`).join('');
+list.insertAdjacentHTML("beforeend", element);
+
+const items = list.querySelectorAll('li');
+items.forEach((item) => {
+  item.classList.add('gallery__item');
+});
+
+const styleImgs = list.querySelectorAll('img');
+styleImgs.forEach((img) => {
+  img.classList.add('gallery__image');
+});
+
+const head = document.querySelector('head');
+head.innerHTML += `<link rel="stylesheet" href="css/gallery-styles.css" />`;
